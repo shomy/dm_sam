@@ -1,0 +1,41 @@
+<div id ="content">
+
+  <div class ="chat_faces">
+    <div class ="face_img_chat"></div>
+    <img src ="/assets/wine_w.png" class ="chat_ill">
+    <div class ="face_img_chat"></div>
+  </div>
+
+  <div class ="chat_names">
+
+      <% @entries.each do |e| %>
+        <h4 class ="chat_name"><a href="/users/<%= e.user.id %>"><%= e.user.email%>さん</a></h4>
+      <% end %>
+
+  </div>
+
+  <div class ="chat_room">
+  <% if @messages.present? %>
+    <% @messages.each do |m| %>
+      <div class="speech-bubble">
+        <div class="sb-bubble sb-line3 sb-left">
+          <%= m.content %>
+        </div>
+      </div>
+
+    <% end %>
+  <% else %>
+
+  <% end %>
+  </div>
+
+  <%= form_for @message do |f| %>
+    <%= f.text_field :content, :placeholder => "Please leave a message" , :size => 70, :class => "chat-box" %>
+    <%= f.hidden_field :room_id, :value => @room.id %>
+    <br>
+    <%= f.submit "POST", :class => "post-btn" %>
+  <% end %>
+
+  <div class ="back"><%= link_to "Back", users_path %></div>
+
+</div>
