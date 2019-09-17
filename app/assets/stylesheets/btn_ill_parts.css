@@ -469,7 +469,7 @@ label input {
 }
 
 .sb-line3.sb-left {
-  background: #ffffff;
+  background: rgb(197,253,255);
   border-top-left-radius: 0;
 }
 
@@ -485,7 +485,7 @@ label input {
 }
 
 .sb-line3.sb-left:before {
-  background: white;
+  background: rgb(197,253,255);
   border-top: solid 2px #c5d0e4;
   height: .5em;
   right: 100%;
