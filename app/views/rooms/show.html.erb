@@ -17,15 +17,22 @@
   <div class ="chat_room">
   <% if @messages.present? %>
     <% @messages.each do |m| %>
-      <div class="speech-bubble">
-        <div class="sb-bubble sb-line3 sb-left">
-          <%= m.content %>
+      <% if m.user == current_user %>
+        <div class="speech-bubble">
+          <div class="sb-bubble sb-line3 sb-right">
+            <%= m.content %>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <div class="speech-bubble">
+          <div class="sb-bubble sb-line3 sb-left">
+            <%= m.content %>
+          </div>
+        </div>
+      <% end %>
 
     <% end %>
   <% else %>
-
   <% end %>
   </div>
 
