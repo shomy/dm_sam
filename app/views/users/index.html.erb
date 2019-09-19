@@ -16,9 +16,9 @@
 
   <% @users.each do |u| %>
   <div class ="chat-index">
-
+      
       <div class ="face_img_chat"></div>
-      <div class ="chat_name"><a href="/users/<%= u.id %>"><%= u.email %>さん</a></div>
+      <div class ="chat_name"><a href="/users/<%= u.id %>"><%= u.email %></a></div>
       <div class ="chat-btn"><a href="/rooms/<%= @roomId %>">CHAT</a></div>
       <div class ="delete-chat"><h4><i class="fas fa-times-circle fa-fw"></i>Delete</h4></div>
 
