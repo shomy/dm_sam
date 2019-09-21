@@ -1,3 +1,4 @@
+
 <h1>ユーザー詳細</h1>
 
 <h2><%= @user.email %></h2>
@@ -18,3 +19,44 @@
 <% end %>
 
 <%= link_to "ユーザー一覧に戻る", users_path %>
+
+<div class ="content">
+
+  <div class ="mypage-head">
+    <div class ="myface-wrapper_chat">
+      <div id ="face_img_field">
+        <i class ="fas fa-smile"></i>
+      </div>
+    </div>
+    <h2><%= @user.email %></h2>
+  </div>
+  <div class ="chat_info">
+    <h2 style ="border-bottom: 1px solid white;">age:</h2>
+    <h2 style ="border-bottom: 1px solid white;">sex:</h2>
+    <h2 style ="border-bottom: 1px solid white;">language:</h2>
+    <h2 style ="border-bottom: 1px solid white;">message:</h2>
+    <br><br>
+    <% if @user.id == current_user.id %>
+
+    <% else %>
+
+      <% if @isRoom == true %>
+        <div class ="chat-btn"><a href="/rooms/<%= @roomId %>">CHAT</a></div>
+      <% else %>
+        <%= form_for @room do |f| %>
+          <%= fields_for @entry do |e| %>
+            <%= e.hidden_field :user_id, :value => @user.id %>
+          <% end %>
+                <%= f.submit "CHAT", :class=> "chat-btn" %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+
+   <div class ="back"><%= link_to "Back", users_path %></div>
+
+  </div>
+
+
+
+</div>

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   root "users#index"
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]
+
 end
